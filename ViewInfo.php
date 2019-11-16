@@ -1,4 +1,5 @@
 <?php
+session_start();
 		
 		if(isset($_POST['Add'])){
 		
@@ -87,7 +88,7 @@ elseif (isset($_POST['Update'])) {
 				}
 		}
 
-		 if (empty($pass)==false && empty($pass)==false) 
+		 if (empty($pass)==false && empty($cpass)==false) 
 		 	{
           if($pass==$cpass){
             $conn=mysqli_connect('localhost','root','','fwa');
@@ -115,6 +116,15 @@ elseif (isset($_POST['Update'])) {
 			
 		}
 		}
+		if(isset($_GET['id'])) { 
+				$id = $_GET['id'];
+				$_SESSION['id']=$id;
+$con=mysqli_connect('localhost','root','','fwa');
+			$sql="DELETE from info where id='$id'";
+			$set=mysqli_query($con,$sql);
+			header('location: viewinfo.php');
+		mysqli_close($conn);
+}
 
 
 		
@@ -143,7 +153,9 @@ elseif (isset($_POST['Back'])) {
 			return $found;
 		}
 		
-		session_start();
+
+		
+		
 if(isset($_COOKIE['uname'])){
 
 ?>
@@ -164,7 +176,7 @@ if(isset($_COOKIE['uname'])){
 						<td width="150px"><h2><i><font color="Red">Freelance</font></i></h2></td>
 						<td  width="100px"><a href="profile.php">Profile</a></td>
 						<td width="100px"><a href="viewinfo.php">View Info</a></td>
-						<td width="100px"><a href="logout.php">Logout</a></td>
+						<td width="100px"><a href="Pages/logout.php">Logout</a></td>
 						<td width="100px"><a href="Jobreq.php">Job Requests</a></td>
 						<td width="100px"><a href="FreelancerDetails.php">Freelancer Details</a></td>
 						<td width="100px"><a href="Analytics.php">Analytics</a></td>
@@ -173,7 +185,7 @@ if(isset($_COOKIE['uname'])){
 						<td width="100px"><a href="Notification.php">Notificstion</a></td>
 						<td width="80px"><a href="home.php"><img src="a.jpg" width="40px" height="40px"></a>
 						<br>
-						<a href = "logout.php"><h3>LogOut</h3></a></td>
+						<a href = "Pages/logout.php"><h3>LogOut</h3></a></td>
 					</tr>
 					
 					 <tr>
@@ -201,10 +213,10 @@ if(isset($_COOKIE['uname'])){
           	  $conn=mysqli_connect('localhost','root','','fwa');
 			$sql="select * from info";
 			$get=mysqli_query($conn,$sql);
-			//$user=mysqli_fetch_assoc($get);
+			
    if(count($get)>0){
 	while ($user=mysqli_fetch_assoc($get)) {
-		
+	
 	?>
 					<tr>
 						<td><?php echo $user["id"];?></td>
@@ -212,6 +224,8 @@ if(isset($_COOKIE['uname'])){
 		          		<td><?php echo $user["pass"];?></td>
 		          		<td><?php echo $user["uname"];?></td>
 		          		<td><?php echo $user["utype"];?></td>
+		          		 <td> <a href="ViewInfo.php?id=<?php echo $user['id'];?>">Delete</a>|<a href="edit.php?id=<?php echo $user['id'];?>"/>Edit</a></td>
+
 		          	</tr>
 		         	
 

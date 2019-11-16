@@ -30,7 +30,7 @@ if(isset($_POST['signup'])){
             $conn=mysqli_connect('localhost','root','','fwa');
 			$sql="insert into info(email,pass,cpass,uname,utype) values('{$email}','{$pass}','{$cpass}','{$uname}','User')";
 			$set=mysqli_query($conn,$sql);
-		header('location: signin.php');
+		header('location: ../signin.php');
 		mysqli_close($conn);
 }
 	}

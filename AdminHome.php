@@ -21,7 +21,7 @@ if(isset($_COOKIE['uname'])){
 					<td align="center" width="500"><h1>Welcome Home!!! <?php echo $_SESSION['uname'];?> </h1></td>
 
 <td><a href="viewinfo.php">View Info</a><br></td>
-		<td><a href="logout.php">Logout</a><br></td>
+		<td><a href="Pages/logout.php">Logout</a><br></td>
 		<td><a href="Jobreq.php">Job Requests</a><br></td>
 		<td><a href="EditCatagory.php">Edit Catagory</a><br></td>
 		<td><a href="FreelancerDetails.php">Freelancer Details</a><br></td>
