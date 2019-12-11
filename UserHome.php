@@ -18,9 +18,6 @@ if(isset($_COOKIE['uname'])){
 		<a href="profile.php">Profile</a><br>
 		<a href="viewinfo.php">View Info</a><br>
 		<a href="logout.php">Logout</a><br>
-		<a href="Jobreq.php">Job Requests</a><br>
-		<a href="Message.php">Message</a><br>
-		<a href="Notification.php">Notificstion</a><br>
 		
 
 </body>

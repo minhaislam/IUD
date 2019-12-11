@@ -20,7 +20,7 @@ if(isset($_POST['login'])){
 				if($user["utype"]=='Admin'){
 					setcookie("uname", $user["uname"], time()+3600, "/");
 			$_SESSION['uname']=$user["uname"];
-			header('location: ../AdminHome.php');
+			header('location: AdminHome.php');
 
 		}
 		
@@ -28,13 +28,13 @@ if(isset($_POST['login'])){
 		elseif($user["utype"]=='User'){
 					setcookie("uname", $user["uname"], time()+3600, "/");
 			$_SESSION['uname']=$user["uname"];
-			header('location: ../UserHome.php');
+			header('location:UserHome.php');
 
 		}
 		
 		}
 		else{
-		header('location:../signin.php');
+		header('location:signin.php');
 	}		
 
 	}

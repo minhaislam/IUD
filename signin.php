@@ -7,7 +7,7 @@
 </head>
 <body>
 	<center>
-	<form method="POST" action="check/signincheck.php">
+	<form method="POST" action="signincheck.php">
 			
 			<legend><b>LOG IN</b><br><hr width="70"></legend>
 			<table cellpadding="5px">
@@ -25,7 +25,7 @@
 			
 			<td style="border-top:1px solid #888;">
 			<input type="submit" name="login" value="Login"/><br>
-			Haven't registered yet?<a href="Pages/Registration.php">Register</a>
+			Haven't registered yet?<a href="Registration.php">Register</a>
 			</td>
 			</tr>
 			
